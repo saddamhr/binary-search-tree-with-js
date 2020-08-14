@@ -102,3 +102,6 @@ BST.insert(27);
 //      7  13 22  27 
 //     / \    / 
 //    5   9  17 
+const root = BST.getRootNode();
+
+BST.inorder(root);
