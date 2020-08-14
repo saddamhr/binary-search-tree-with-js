@@ -13,7 +13,7 @@ class BinarySearchTree {
 
     insert(data) {
         var newNode = new Node(data);
-        if(this.root === null) {
+        if (this.root === null) {
             this.root = newNode;
         } else {
             this.insertNode(this.root, newNode);
@@ -21,11 +21,11 @@ class BinarySearchTree {
     }
 
     insertNode(node, newNode) {
-        if(newNode.data < node.data) {
-            if(node.left === null) node.left = newNode;
-            else this.insertNode(node.left, newNode); 
+        if (newNode.data < node.data) {
+            if (node.left === null) node.left = newNode;
+            else this.insertNode(node.left, newNode);
         } else {
-            if(node.right === null) node.right = newNode;
+            if (node.right === null) node.right = newNode;
             else this.insertNode(node.right, newNode);
         }
     }
@@ -35,22 +35,22 @@ class BinarySearchTree {
     }
 
     removeNode(node, key) {
-        if(node === null) return null;
-        else if(key < node.data) {
+        if (node === null) return null;
+        else if (key < node.data) {
             node.left = this.removeNode(node.left, key);
             return node;
-        } else if(key > node.data) {
+        } else if (key > node.data) {
             node.right = this.removeNode(node.right, key);
             return node;
         } else {
-            if(node.left === null && node.right === null) {
+            if (node.left === null && node.right === null) {
                 node = null;
                 return node;
-            } if(node.left === null) {
+            } if (node.left === null) {
                 node = node.right;
                 r
                 return node;
-            } else if(node.right === null) {
+            } else if (node.right === null) {
                 node = node.left;
                 return node;
             }
@@ -63,7 +63,7 @@ class BinarySearchTree {
     }
 
     findMinNode(node) {
-        if(node.left === null) {
+        if (node.left === null) {
             return node;
         } else return this.findMinNode(node.left);
     }
@@ -73,7 +73,7 @@ class BinarySearchTree {
     }
 
     inorder(node) {
-        if(node !== null) {
+        if (node !== null) {
             this.inorder(node.left);
             console.log(node.data);
             this.inorder(node.right);
@@ -83,25 +83,25 @@ class BinarySearchTree {
 
 const BST = new BinarySearchTree();
 
-BST.insert(15); 
-BST.insert(25); 
-BST.insert(10); 
-BST.insert(7); 
-BST.insert(22); 
-BST.insert(17); 
-BST.insert(13); 
-BST.insert(5); 
-BST.insert(9); 
+BST.insert(15);
+BST.insert(25);
+BST.insert(10);
+BST.insert(7);
+BST.insert(22);
+BST.insert(17);
+BST.insert(13);
+BST.insert(5);
+BST.insert(9);
 BST.insert(27);
-
-
 //          15 
 //         /  \ 
 //        10   25 
 //       / \   / \ 
 //      7  13 22  27 
 //     / \    / 
-//    5   9  17 
+//    5   9  17
+
+
 const root = BST.getRootNode();
 
-BST.inorder(root);
+BST.inorder(root); // prints 5 7 9 10 13 15 17 22 25 27 
